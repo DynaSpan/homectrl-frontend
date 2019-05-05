@@ -1,0 +1,59 @@
+<section class="login-container">
+
+    <div class="login-box-container">
+        <div class="titleHolder">
+            <h1><i class="fas fa-home"></i> Home<span>CTRL</span></h1>
+        </div>
+
+        <div class="login-box">
+          <!-- LOGIN BOX -->
+          <ng-container>
+            <div class="message error" *ngIf="loginError">
+                <i class="fas fa-exclamation-triangle"></i>
+                {{ loginError }}
+            </div>
+
+            <div class="login-form">
+                <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit(loginForm);">
+                    <input type="text" autofocus required ngModel name="username" placeholder="{{ 'COMMON.USERNAME' | translate }}" />
+                    <input type="password" required ngModel name="password" placeholder="{{ 'COMMON.PASS' | translate }}" />
+                    <input type="submit" [disabled]="!loginForm.form.valid || loginState == 'executing'" value="{{ 'LOGIN.SUBMIT' | translate }}" />
+                </form>
+            </div>
+
+            <!-- <div class="links">
+                <ul>
+                    <li>
+                        <a href="#">{{ 'LOGIN.FORGOT_PASSWORD' | translate }}</a>
+                    </li>
+                </ul>
+            </div> -->
+          </ng-container>
+
+          <div class="links">
+            <ul class="dark-links">
+              <li>
+                <a (click)="setLanguage('en')">English</a>
+              </li>
+              <li>
+                <a (click)="setLanguage('nl')">Nederlands</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="login-box-loader" *ngIf="loginState == 'executing'">
+            <div class="login-box-loading">
+              <div class="loader">
+                <img src="../../assets/images/loading/white-circle.svg" />
+
+                <span>{{ 'LOGIN.EXECUTING' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+            &copy; HomeCTRL
+        </div>
+    </div>
+</section>

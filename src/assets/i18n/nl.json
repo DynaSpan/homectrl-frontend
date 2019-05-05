@@ -1,0 +1,29 @@
+{
+    "COMMON": {
+        "USERNAME": "Gebruikersnaam",
+        "NAME": "Naam",
+        "PASS": "Wachtwoord",
+        "DELETE": "Verwijderen",
+        "EDIT": "Bewerken",
+        "CREATE": "Aanmaken",
+        "SAVE": "Opslaan",
+        "CURRENT_PASS": "Huidig wachtwoord",
+        "NEW_PASS": "Nieuw wachtwoord",
+        "NEW_PASS_REPEAT": "Nieuw wachtwoord (herhaald)",
+        "SUBMIT": "Doorgaan",
+        "PASS_TOO_SHORT": "Uw nieuwe wachtwoord is te kort (minimaal 10 tekens)",
+        "PASS_NO_MATCH": "Uw nieuwe wachtwoord komt niet overeen met de herhaling",
+        "PASS_CHANGE_SUCCESS": "Uw wachtwoord is gewijzigd. Log opnieuw in.",
+        "PASS_INVALID": "Uw huidige wachtwoord is incorrect",
+        "SETTINGS": "Instellingen",
+        "SEARCH": "Zoeken",
+        "LOGOUT": "Uitloggen"
+    },
+
+    "LOGIN": {
+        "SUBMIT": "Inloggen",
+        "FORGOT_PASSWORD": "Wachtwoord vergeten?",
+        "EXECUTING": "Een ogenblik...",
+        "INVALID_CREDENTIALS": "Gebruikersnaam en/of wachtwoord incorrect"
+    }
+}

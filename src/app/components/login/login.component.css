@@ -1,0 +1,136 @@
+.login-container {
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 10;
+    position: relative;
+}
+.login-box-container, .login-loader {
+    margin: 20px auto;
+    display: table-cell;
+    vertical-align: middle;
+}
+.login-loader img {
+    display: inline-block;
+}
+.login-box-container .titleHolder {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+.login-box-container .titleHolder h1, .login-box-container .copyright {
+    font-size: 26px;
+    font-weight: 300;
+    padding: 5px 0;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.login-box-container .titleHolder h1 i {
+    padding-right: 10px;
+}
+.login-box-container .titleHolder h1 span {
+    font-weight: 400;
+}
+.login-box-container .login-box {
+    box-sizing: border-box;
+    background: #666;
+    border-radius: 3px;
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.3);
+    border-top: 5px #2980b9 solid;
+    border-bottom: 5px #2980b9 solid;
+    padding: 10px 20px;
+    position: relative;
+}
+.login-box-container .login-box h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #363636;
+    padding: 10px 0 7.5px 0;
+    text-transform: uppercase;
+}
+.login-box-container .login-box h2 i {
+    padding-right: 10px;
+}
+.login-box-container .login-box p {
+    padding: 7.5px 0;
+    font-size: 16px;
+}
+.login-box-container .login-box .login-form {
+    padding-top: 15px;
+}
+.login-box-container .login-box .links ul {
+    list-style: none;
+    margin: 5px auto;
+    font-size: 16px;
+}
+.login-box-container .login-box .links ul.dark-links {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.login-box-container .login-box .links ul li {
+    display: inline-block;
+    margin: 5px 0;
+    border-right: 1px #ccc dotted;
+    padding: 0 10px;
+}
+.login-box-container .login-box .links ul li:last-child {
+    border-right: 0;
+}
+.login-box-container .login-box .links ul li a {
+    text-decoration: none;
+    color: #3498db;
+    cursor: pointer;
+}
+.login-box-container .login-box .links ul.dark-links li a {
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.login-box-container .login-box .login-box-loader {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: wait;
+    border-radius: 3px;
+    text-align: center;
+}
+.login-box-container .login-box .login-box-loader .login-box-loading {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.login-box-container .login-box .login-box-loader .login-box-loading .loader {
+    vertical-align: middle;
+    display: table-cell;
+}
+.login-box-container .login-box .login-box-loader .login-box-loading .loader span {
+    display: block;
+    color: #bbb;
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+.login-box-container .copyright {
+    font-size: 12px;
+    color: #eee;
+    padding: 7.5px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 100%;
+}
+.message.error {
+    margin: 10px 0 -10px 0;
+}

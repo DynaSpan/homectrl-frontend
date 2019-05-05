@@ -1,0 +1,30 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">
+        <div class="logo-holder">
+          <i class="fas fa-home"></i>
+          Home<span>CTRL</span>
+        </div>
+      </a>
+    </div>
+
+    <nav>
+      <ul>
+        <li class="username">
+          {{ currentUser?.name }}
+        </li>
+
+        <li>
+          <a (click)="logout()">
+            <i class="fas fa-power-off"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="main-content">
+  <router-outlet></router-outlet>
+</section>

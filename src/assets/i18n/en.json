@@ -1,0 +1,29 @@
+{
+    "COMMON": {
+        "USERNAME": "Username",
+        "NAME": "Name",
+        "PASS": "Password",
+        "DELETE": "Delete",
+        "EDIT": "Edit",
+        "CREATE": "Create",
+        "SAVE": "Save",
+        "CURRENT_PASS": "Current password",
+        "NEW_PASS": "New password",
+        "NEW_PASS_REPEAT": "New password (repeated)",
+        "SUBMIT": "Submit",
+        "PASS_TOO_SHORT": "Your new password is too short (at least 10 chars)",
+        "PASS_NO_MATCH": "Your new password hasn't been repeated correctly",
+        "PASS_CHANGE_SUCCESS": "Your password has been changed. Please login again.",
+        "PASS_INVALID": "Your current password is incorrect",
+        "SETTINGS": "Settings",
+        "SEARCH": "Search",
+        "LOGOUT": "Logout"
+    },
+
+    "LOGIN": {
+        "SUBMIT": "Login",
+        "FORGOT_PASSWORD": "Forgot password?",
+        "EXECUTING": "One second please...",
+        "INVALID_CREDENTIALS": "Invalid email address and/or password"
+    }
+}
