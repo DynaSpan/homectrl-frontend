@@ -130,7 +130,6 @@ export class HttpAuthClient {
         if (error.status === 401) {
             this.authService.invalidateToken();
             this.router.navigate(["login"]);
-            return;
         }
 
         reject(error);
