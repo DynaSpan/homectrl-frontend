@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import { HttpAuthClient } from '../auth/httpauthclient';
-import { AuthService } from '../auth/auth.service';
+import { TokenService } from '../auth/token.service';
 import { UserDTO } from '../../dto/UserDTO';
 import { LoginAuthTokenDTO } from '../../dto/LoginAuthTokenDTO';
 import { BehaviorSubject } from 'rxjs';
@@ -17,7 +17,7 @@ export class UserService {
 
     constructor(
         private http: HttpAuthClient, 
-        private authService: AuthService,
+        private tokenService: TokenService,
         private translate: TranslateService
     ) {
         this.http.setApiUrl(environment.apiUrl + "user/");
@@ -92,7 +92,7 @@ export class UserService {
                 var loginResult = result as LoginAuthTokenDTO;
         
                 if (loginResult.token) {
-                    this.authService.setToken(loginResult.token);
+                    this.tokenService.setToken(loginResult.token);
 
                     return resolve(true);
                 }

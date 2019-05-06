@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpAuthClient } from './core/services/auth/httpauthclient';
-import { AuthService } from './core/services/auth/auth.service';
+import { TokenService } from './core/services/auth/token.service';
 import { UserService } from './core/services/user/user.service';
 import { FormsModule } from '@angular/forms';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
@@ -40,7 +40,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     HttpAuthClient,
-    AuthService,
+    TokenService,
     UserService
   ],
   bootstrap: [AppComponent]

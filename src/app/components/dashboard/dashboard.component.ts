@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserDTO } from 'src/app/core/dto/UserDTO';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { TokenService } from 'src/app/core/services/auth/token.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
     constructor(
         private userService: UserService,
-        private authService: AuthService,
+        private tokenService: TokenService,
         private router: Router
     ) {
 
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     }
 
     logout() {
-        this.authService.invalidateToken();
+        this.tokenService.invalidateToken();
         this.router.navigate(["/login"]);
     }
 

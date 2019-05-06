@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { AuthService } from "./auth.service";
+import { TokenService } from "./token.service";
 
 /**
  * Wrapper for HttpClient that injects Content-Type headers and a Authorization header if the user is authorized
@@ -13,7 +13,7 @@ export class HttpAuthClient {
 
     constructor(
         private http: HttpClient, 
-        private authService: AuthService,
+        private tokenService: TokenService,
         private router: Router
     ) {}
 
@@ -128,7 +128,7 @@ export class HttpAuthClient {
     private catchError(error: any, reject: any): void {
         // In case of an authorization error, redirect the user to the login page
         if (error.status === 401) {
-            this.authService.invalidateToken();
+            this.tokenService.invalidateToken();
             this.router.navigate(["login"]);
         }
 
@@ -141,8 +141,8 @@ export class HttpAuthClient {
      * @param headers 
      */
     private createAuthorizationHeader(headers: HttpHeaders) {
-        if (this.authService.isAuthenticated()) { 
-            headers = headers.append('Authorization', 'Bearer ' + this.authService.getToken()); 
+        if (this.tokenService.isAuthenticated()) { 
+            headers = headers.append('Authorization', 'Bearer ' + this.tokenService.getToken()); 
         }
 
         headers = headers.append('Accept', 'application/json');

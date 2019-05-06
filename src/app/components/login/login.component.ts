@@ -28,6 +28,7 @@ export class LoginComponent {
 
         this.userService.login(form.value.username, form.value.password).then(res => {
             if (res) {
+                this.userService.getMe(true); // force update
                 this.router.navigate(["/"]);
             }
         }).catch(err => { 
