@@ -12,6 +12,7 @@ import { HttpAuthClient } from './core/services/auth/httpauthclient';
 import { AuthService } from './core/services/auth/auth.service';
 import { UserService } from './core/services/user/user.service';
 import { FormsModule } from '@angular/forms';
+import { OverviewComponent } from './components/dashboard/overview/overview.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -22,7 +23,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
