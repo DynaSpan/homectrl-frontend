@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
 
     private cachedUser: UserDTO;
-    static userObservable: BehaviorSubject<UserDTO>;
+    private static userObservable: BehaviorSubject<UserDTO> = null;
 
     constructor(
         private http: HttpAuthClient, 
@@ -21,11 +21,6 @@ export class UserService {
         private translate: TranslateService
     ) {
         this.http.setApiUrl(environment.apiUrl + "user/");
-
-        if (UserService.userObservable == null
-            || UserService.userObservable == undefined) {
-            UserService.userObservable = new BehaviorSubject<UserDTO>(null);
-        }
     }
 
     /**
@@ -35,34 +30,34 @@ export class UserService {
      *                    to get the latest user info from the server, 
      *                    otherwise a cached version is (probably) served
      * 
-     * @return Promise with UserDTO object
+     * @return BehaviorSubject with UserDTO object
      */
-    getMe(forceUpdate: boolean = false): Promise<UserDTO> {
-        return new Promise((resolve, reject) => {
-            if (this.cachedUser != null && !forceUpdate) {
-                return resolve(this.cachedUser);
+    getMe(forceUpdate: boolean = false): BehaviorSubject<UserDTO> {
+        if (UserService.userObservable != null
+            && UserService.userObservable != undefined) {
+                return UserService.userObservable;
+        }
+
+        // Create observable & get user
+        UserService.userObservable = new BehaviorSubject<UserDTO>(null);
+
+        this.http.get('me').then(result => {
+            this.cachedUser = result as UserDTO;
+            UserService.userObservable.next(this.cachedUser);
+
+            switch (this.cachedUser.language) {
+                case 0:
+                    this.translate.use('en'); 
+                    localStorage.setItem('lang', 'en');
+                    break;
+                case 1:
+                    this.translate.use('nl'); 
+                    localStorage.setItem('lang', 'nl');
+                    break;
             }
+        }).catch (err => console.error(err));
 
-            this.http.get('me').then(result => {
-                this.cachedUser = result as UserDTO;
-                UserService.userObservable.next(this.cachedUser);
-
-                switch (this.cachedUser.language) {
-                    case 0:
-                        this.translate.use('en'); 
-                        localStorage.setItem('lang', 'en');
-                        break;
-                    case 1:
-                        this.translate.use('nl'); 
-                        localStorage.setItem('lang', 'nl');
-                        break;
-                }
-
-                return resolve(this.cachedUser);
-            }).catch (error => {
-                return reject(error);
-            });
-        });
+        return UserService.userObservable;
     } 
 
     /**

@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
         private router: Router
     ) {
 
-        this.userService.getMe().then(u => this.currentUser = u);
+        this.userService.getMe().subscribe(u => this.currentUser = u);
     }
 
     ngOnInit() {
