@@ -34,12 +34,14 @@ export class UserService {
      */
     getMe(forceUpdate: boolean = false): BehaviorSubject<UserDTO> {
         if (UserService.userObservable != null
-            && UserService.userObservable != undefined) {
+            && UserService.userObservable != undefined
+            && !forceUpdate) {
                 return UserService.userObservable;
         }
 
         // Create observable & get user
-        UserService.userObservable = new BehaviorSubject<UserDTO>(null);
+        if (UserService.userObservable == null)
+            UserService.userObservable = new BehaviorSubject<UserDTO>(null);
 
         this.http.get('me').then(result => {
             this.cachedUser = result as UserDTO;
